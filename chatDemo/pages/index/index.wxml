@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="wrapper" id="wrapperCon">
+  <!-- 消息列表 --> 
+  <view class="chat {{item.type=='L'?'chat-l':'chat-r'}}" wx:for="{{messageList}}" wx:for-item="item">
+    <view class="message-list">
+      <view class="c-date">2019年3月23日 15:33</view>
+      <view class="avater {{item.type=='R'?'avater-r':''}}">
+        <image src='{{item.avater}}'></image>
+      </view>
+      <view class="chat-con {{item.type=='L'?'chat-con-l':'chat-con-r'}} ">
+        <text>{{item.con}}</text>
+      </view>
+    </view> 
+  </view> 
+  <!-- 消息输入 -->
+  <view class="message-input">
+    <input placeholder="请输入内容" type="text" value="{{messageInputVal}}" cursor-spacing="50"  bindinput='messageInput' confirm-type="send" bindconfirm="messageSend"/>
+    <button bindtap="messageSend">发送</button>
+  </view>
+</view>
